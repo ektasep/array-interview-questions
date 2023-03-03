@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+vector<int> pairsum(vector<int>arr,int sum){
+    int ele;
+    for(int i=0;i<arr.size();i++){
+        int ele=arr[i];
+        for(int j=i+1;j<arr.size();j++){
+          // cout<<"elemnts "<<" "<<arr[j]<<" ";
+            if(ele+arr[j]==sum){
+                cout<<"pair found "<<ele<<" "<<arr[j]<<endl;
+                
+            }
+            
+        }
+    }
+    //cout<<"pair not found";
+}
+
+int main()
+{
+vector<int> arr{10,20,40,60,70};
+//int size=6;
+int sum=0;
+pairsum(arr,sum);
+
+
+    return 0;
+}

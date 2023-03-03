@@ -1,0 +1,33 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+vector<int> intersectionfunc(int arr[],int brr[],int size1,int size2,vector<int>ans){
+    //vector<int>ans;
+    for(int i=0;i<size1;i++){
+        int ele=arr[i];
+        for(int j=0;j<size2;j++){
+            //int ele=brr[i];
+            if(ele==brr[j]){
+                ans.push_back(ele);
+            }
+        }
+    }
+    for(int i=0;i<ans.size();i++){
+        cout<<ans[i]<<" ";
+    }
+}
+
+int main()
+{
+int arr[]={1,2,3,3,4,6,8};
+int size1=6;
+int brr[]={3,4,10};
+int size2=3;
+vector<int> ans;
+intersectionfunc(arr,brr,size1,size2,ans);
+
+
+
+    return 0;
+}

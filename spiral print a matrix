@@ -1,0 +1,62 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+vector<int> spiral(vector<vector<int>> v){
+    //row 
+    int n=v.size();
+    //column
+    int m=v[0].size();
+     
+     
+     vector<int> ans;
+    int total_amount=m*n;
+    
+    int startingrow=0;
+    int endingcol=m-1;
+    int endingrow=n-1;
+    int startingcol=0;
+    int count=0;
+    while(count<total_amount){
+        
+        //strating row
+        for(int i=startingrow;i<=endingcol && count<total_amount;i++){
+            ans.push_back(v[startingrow][i]);
+            count++;
+            
+        }
+        startingrow++;
+        //ending col
+        for(int i=startingrow;i<=endingrow && count<total_amount;i++){
+            ans.push_back(v[i][endingcol]);
+            count++;
+        }
+        endingcol--;
+        //ending row
+        for(int i=endingcol;i>=startingcol && count<total_amount ;i--){
+            ans.push_back(v[endingrow][i]);
+            count++;
+        }
+        endingrow--;
+        //ending  col
+        for(int i=endingrow;i>=startingrow && count<total_amount;i--){
+            ans.push_back(v[i][startingcol]);
+            count++;
+        }
+        startingcol++;
+    }
+    return ans;
+    
+}
+
+int main()
+{
+vector<vector<int>> v{
+    {1,2,3},{4,5,6},{7,8,9},{10,11,12}};
+    vector<int> ans=spiral(v);
+    for(int i=0;i<ans.size();i++){
+        cout<<ans[i];
+    }
+
+    return 0;
+}
